@@ -62,3 +62,10 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'kaminari'
+# ログイン機能
+gem 'devise'
+# 画像
+gem "refile", require: "refile/rails", github: 'manfe/refile'
+gem 'refile-mini_magick'
+#論理削除用のGem
+gem 'paranoia'
