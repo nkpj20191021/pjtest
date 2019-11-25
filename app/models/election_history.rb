@@ -1,0 +1,2 @@
+class ElectionHistory < ApplicationRecord
+end
