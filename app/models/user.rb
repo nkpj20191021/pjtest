@@ -6,4 +6,18 @@ class User < ApplicationRecord
   has_many :posts
   has_many :topics
   has_many :user_events
+
+  attachment :user_image
+  
+  enum gender: {man:0, woman:1, custom:2}
+
+  REGISTRABLE_ATTRIBUTES = %i(
+    last_name
+    first_name
+    last_name_kana
+    first_name_kana
+    email
+    gender
+    age
+  )
 end

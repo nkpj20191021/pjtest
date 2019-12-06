@@ -1,0 +1,23 @@
+<div class="col-xs-10">
+    <h1> マイページ</h1>
+    <div class="col-xs-5 border" style="margin-right: 50px;">
+        <h4> ユーザ情報</h4>
+        <%= attachment_image_tag @user, :user_image, fallback: "no_image.jpg", format:'jpeg', size: "100x100" %>
+        <div class="field">
+            <label>
+                名前 : <%= @user.last_name + @user.first_name %>
+                (<%= @user.last_name_kana + @user.first_name_kana %>)
+            </label>
+            <br>
+            <label>メールアドレス : <%= @user.email %></label>
+            <br>
+            <label>性別 : <%= @user.gender_i18n %></label>
+            <br>
+            <label>年齢 : <%= @user.age %></label>
+        </div>
+        <%= link_to "編集" , edit_user_path(@user) %>
+    </div>
+    <div class="col-xs-10">
+        <%= link_to "退会する", user_withdrawal_path(@user) %>
+    </div>
+</div>
