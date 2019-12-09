@@ -1,0 +1,36 @@
+<h1><%= @category.name %></h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>title</th>
+            <th>option</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @category.topics.each do |topic| %>
+        <tr>
+            <td>
+                <%= link_to category_topics_path(topic) do %>
+                    <% topic.topic %>
+                <% end %>
+            </td>
+            <td>
+                <%= link_to category_topics_path(topic) do %>
+                    <% topic.explanation %>
+                <% end %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<% if user_signed_in? %>
+    <%= form_for [@category, @category_topic] do |f| %>
+        <div class="row">
+            <div>
+                <%= f.text_field :topic, rows:'3', class: "form-control",placeholder: "topic名" %>
+                <%= f.text_area :explanation, rows:'3', class: "form-control",placeholder: "説明" %>
+            </div>
+        </div>
+        <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+    <% end %>
+<% end %>

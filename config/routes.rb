@@ -4,6 +4,11 @@ Rails.application.routes.draw do
   resources :users, only: [:destroy, :show, :edit, :update] do
     get 'withdrawal'
   end
+  resources :categories do
+    resources :topics do
+      resources :posts
+    end
+  end
   get 'home/about' => 'home#about'
   root 'home#top'
 end
