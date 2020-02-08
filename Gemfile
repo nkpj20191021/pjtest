@@ -70,7 +70,7 @@ gem 'refile-mini_magick'
 #論理削除用のGem
 gem 'paranoia'
 #bootstrap
-gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootstrap-sass', '~> 3.4.1'
 #検索
 gem 'ransack'
 #日本語化
