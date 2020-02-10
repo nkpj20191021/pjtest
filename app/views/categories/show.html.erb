@@ -2,6 +2,7 @@
 <table class="table">
     <thead>
         <tr>
+            <th></th>
             <th>title</th>
             <th>option</th>
         </tr>
@@ -10,14 +11,17 @@
         <% @category.topics.each do |topic| %>
         <tr>
             <td>
-                <%= link_to category_topics_path(topic) do %>
+                <%= link_to category_topic_path(topic.category_id, topic) do %>
+                    <%= attachment_image_tag topic, :topic_image, fallback: "no_image.jpg", format:'jpeg', size: "100x100" %>
+                <% end %>
+            </td>
+            <td>
+                <%= link_to category_topic_path(topic.category_id, topic) do %>
                     <% topic.topic %>
                 <% end %>
             </td>
             <td>
-                <%= link_to category_topics_path(topic) do %>
-                    <% topic.explanation %>
-                <% end %>
+                    <%= topic.explanation %>
             </td>
         </tr>
         <% end %>
@@ -27,10 +31,11 @@
     <%= form_for [@category, @category_topic] do |f| %>
         <div class="row">
             <div>
+                <%= f.attachment_field :topic_image %>
                 <%= f.text_field :topic, rows:'3', class: "form-control",placeholder: "topic名" %>
                 <%= f.text_area :explanation, rows:'3', class: "form-control",placeholder: "説明" %>
             </div>
         </div>
-        <%= f.submit "送信する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+        <%= f.submit "追加する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
     <% end %>
 <% end %>

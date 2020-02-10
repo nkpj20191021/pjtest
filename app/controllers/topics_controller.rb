@@ -1,9 +1,9 @@
 class TopicsController < ApplicationController
-    def index
-        @topics = Topic.all
-    end
     def show
-    end
+        @category = Category.find(params[:category_id])
+        @topic = Topic.find(params[:id])        
+        @topic_post = Post.new
+        end
     def new
     end
     def create
@@ -22,6 +22,6 @@ class TopicsController < ApplicationController
 
     private
     def category_topic_params
-        params.require(:topic).permit(:user_id, :category_id, :topic, :explanation)
+        params.require(:topic).permit(:user_id, :category_id, :topic, :explanation, :topic_image)
     end
 end

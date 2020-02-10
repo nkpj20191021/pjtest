@@ -1,0 +1,33 @@
+<h1><%= @topic.topic %></h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th>コメント</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @topic.posts.each do |post| %>
+        <tr>
+            <td>
+                <%= attachment_image_tag post.user, :user_image, fallback: "no_image.jpg", format:'jpeg', size: "40x40", class: "icon" %>
+                <%= post.user.first_name %>
+                <%= post.content %>
+            </td>
+            <td>
+                <%= link_to "削除", category_topic_post_path(@topic.category_id, @topic, post),
+		method: :delete, "data-confirm" => "本当に削除しますか？" %>
+            </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<% if user_signed_in? %>
+    <%= form_for [@category, @topic, @topic_post] do |f| %>
+        <div class="row">
+            <div>
+                <%= f.text_field :content, rows:'3', class: "form-control",placeholder: "コメント" %>
+            </div>
+        </div>
+        <%= f.submit "追加する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+    <% end %>
+<% end %>
