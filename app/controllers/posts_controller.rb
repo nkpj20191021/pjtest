@@ -14,8 +14,12 @@ class PostsController < ApplicationController
     end
     def destroy
         post = Post.find(params[:id])
-        post.destroy
-        redirect_to category_topic_path(post.topic.category_id, post.topic_id)
+        if post.user_id == current_user.id
+            post.destroy
+            redirect_to category_topic_path(post.topic.category_id, post.topic_id)
+        else
+            redirect_to category_topic_path(post.topic.category_id, post.topic_id)
+        end
     end
 
     private

@@ -11,7 +11,7 @@ class TopicsController < ApplicationController
         topic = current_user.topics.new(category_topic_params)
         topic.category_id = category.id
         topic.save
-        redirect_to category_path(category)
+        redirect_to category_topic_path(category,topic)
     end
     def edit
     end

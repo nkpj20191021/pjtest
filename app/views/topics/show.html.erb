@@ -1,4 +1,8 @@
+<%= link_to "トピック一覧へ", category_path(@topic.category_id) %>
+<br>
+<%= attachment_image_tag @topic, :topic_image, fallback: "no_image.jpg", format:'jpeg', size: "120x120" %>
 <h1><%= @topic.topic %></h1>
+<%= @topic.explanation %>
 <table class="table">
     <thead>
         <tr>
@@ -14,8 +18,10 @@
                 <%= post.content %>
             </td>
             <td>
-                <%= link_to "削除", category_topic_post_path(@topic.category_id, @topic, post),
-		method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                <% if post.user_id == current_user.id %>
+                    <%= link_to "削除", category_topic_post_path(@topic.category_id, @topic, post),
+method: :delete, "data-confirm" => "本当に削除しますか？" %>
+                <% end %>
             </td>
         </tr>
         <% end %>
@@ -28,6 +34,6 @@
                 <%= f.text_field :content, rows:'3', class: "form-control",placeholder: "コメント" %>
             </div>
         </div>
-        <%= f.submit "追加する", class: "btn btn-lg btn-base-1 mt-20 pull-right" %>
+        <%= f.submit "コメントする", class: "btn btn-primary btn-base-1 mt-20 pull-right" %>
     <% end %>
 <% end %>
