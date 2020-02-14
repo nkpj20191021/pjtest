@@ -1,5 +1,7 @@
 <% @categories.each do |category| %>
-    <%= link_to category_path(category) do %>
-        <% category.name %>
-    <% end %>
+    <div class="col-xs-3 category">
+        <%= link_to category_path(category) do %>
+            <% category.name %>
+        <% end %>
+    </div>
 <% end %>

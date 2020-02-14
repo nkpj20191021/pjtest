@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.body{
+	margin-top: 80px;
+}
+.border{
+	border: solid 1px;
+	margin-bottom: 5px;
+}
+.itemsize{
+	font-size: 20px;
+}
+
+/* タブレット縦サイズ*/
+@media screen and (max-width:768px) {  
+    
+  }
+   
+  /* スマホサイズ*/
+  @media screen and (max-width:425px) {  
+  
+  }
