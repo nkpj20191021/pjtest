@@ -10,3 +10,7 @@
         { name: cate}
     )
 end
+
+Politician.create(id: 1, party_id: 1, first_name: '晋三', last_name: '安倍')
+Politician.create(id: 2, party_id: 1, first_name: '太郎', last_name: '麻生')
+Politician.create(id: 3, party_id: 1, first_name: '太郎', last_name: '河野')

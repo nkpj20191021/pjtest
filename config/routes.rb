@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   end
   get 'home/about' => 'home#about'
   root 'home#top'
+  resources :politicians
+
 end
