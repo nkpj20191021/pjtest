@@ -11,6 +11,17 @@
     )
 end
 
-Politician.create(id: 1, party_id: 1, first_name: '晋三', last_name: '安倍')
-Politician.create(id: 2, party_id: 1, first_name: '太郎', last_name: '麻生')
-Politician.create(id: 3, party_id: 1, first_name: '太郎', last_name: '河野')
+# Constituency.create(postalcode: 1, constituency: '横浜')
+# Constituency.create(postalcode: 2, constituency: '川崎')
+
+Party.create(name: '自民党')
+Party.create(name: '民主党')
+
+Politician_classifications.create(name: '衆議院議員')
+Politician_classifications.create(name: '参議院議員')
+
+# Politician.create(party_id: 1, first_name: '晋三', last_name: '安倍', first_name_kana: 'しんぞう', last_name_kana: 'あべ')
+# Politician.create(party_id: 1, first_name: '太郎', last_name: '麻生', first_name_kana: 'たろう', last_name_kana: 'あそう')
+# Politician.create(party_id: 1, first_name: '太郎', last_name: '河野', first_name_kana: 'たろう', last_name_kana: 'こうの')
+
+
